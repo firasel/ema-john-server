@@ -55,4 +55,4 @@ app.get('/',(req,res)=>{
     res.send('hello i am working');
 })
 
-app.listen(3001);
+app.listen(process.env.PORT || 3001);
