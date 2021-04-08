@@ -13,7 +13,8 @@ client.connect(err => {
     const ordersCollection = client.db("emaJhondb").collection("orders");
 
     app.get('/products',(req,res)=>{
-        productsCollection.find({})
+        const search = req.query.search
+        productsCollection.find({name: {$regex: search}})
         .toArray((error,documents)=>{
             res.send(documents);
         })
